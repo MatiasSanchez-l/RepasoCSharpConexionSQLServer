@@ -1,0 +1,14 @@
+﻿@model List<PracticaConBDD.Models.Local>
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Direccion</th>
+    </tr>
+    @foreach(var local in Model)
+            {
+                <tr>
+                    <td>@local.Nombre</td>
+                    <td>@local.Direccion</td>
+                </tr>
+            }
+</table>
