@@ -9,5 +9,7 @@ namespace PracticaConBDD.Servicios
     interface ILocalServicio
     {
         void Alta(Local local);
+        void Borrar(Local local);
+        Local obtenerPorId(int id);
     }
 }

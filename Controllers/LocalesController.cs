@@ -36,5 +36,14 @@ namespace PracticaConBDD.Controllers
             _localServicio.Alta(local);
             return Redirect("/Locales");
         }
+
+        
+        public IActionResult Borrar(int id)
+        {
+            Local localABorrar = _localServicio.obtenerPorId(id);
+            _localServicio.Borrar(localABorrar);
+
+            return Redirect("/Locales");
+        }
     }
 }
