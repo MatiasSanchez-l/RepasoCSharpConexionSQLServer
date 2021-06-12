@@ -45,5 +45,20 @@ namespace PracticaConBDD.Controllers
 
             return Redirect("/Locales");
         }
+
+        public IActionResult Modificar(int id)
+        {
+            Local local = _localServicio.obtenerPorId(id);
+
+            return View(local);
+        }
+
+        [HttpPost]
+        public IActionResult Modificar(Local Local)
+        {
+            _localServicio.Modificar(Local);
+
+            return Redirect("/Locales");
+        }
     }
 }

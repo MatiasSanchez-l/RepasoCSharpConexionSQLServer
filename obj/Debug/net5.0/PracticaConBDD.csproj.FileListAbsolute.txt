@@ -396,3 +396,4 @@ D:\.net\practicaBdd\PracticaConBDD\PracticaConBDD\bin\Debug\net5.0\runtimes\win-
 D:\.net\practicaBdd\PracticaConBDD\PracticaConBDD\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\.net\practicaBdd\PracticaConBDD\PracticaConBDD\obj\Debug\net5.0\Razor\Views\Locales\Index.cshtml.g.cs
 D:\.net\practicaBdd\PracticaConBDD\PracticaConBDD\obj\Debug\net5.0\Razor\Views\Locales\Alta.cshtml.g.cs
+D:\.net\practicaBdd\PracticaConBDD\PracticaConBDD\obj\Debug\net5.0\Razor\Views\Locales\Modificar.cshtml.g.cs

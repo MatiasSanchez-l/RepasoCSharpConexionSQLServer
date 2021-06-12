@@ -10,6 +10,8 @@ namespace PracticaConBDD.Servicios
     {
         void Alta(Local local);
         void Borrar(Local local);
+
+        void Modificar(Local local);
         Local obtenerPorId(int id);
     }
 }

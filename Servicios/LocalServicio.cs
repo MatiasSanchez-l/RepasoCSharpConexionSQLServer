@@ -25,6 +25,14 @@ namespace PracticaConBDD.Servicios
             _dBContext.SaveChanges();
         }
 
+        public void Modificar(Local local)
+        {
+            Local objActual = obtenerPorId(local.IdLocal);
+            objActual.Direccion = local.Direccion;
+            objActual.Nombre = local.Nombre;
+            _dBContext.SaveChanges();
+        }
+
         public void Borrar(Local local)
         {
             _dBContext.Locals.Remove(local);
