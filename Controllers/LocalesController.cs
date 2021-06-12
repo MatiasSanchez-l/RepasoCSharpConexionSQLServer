@@ -11,10 +11,13 @@ namespace PracticaConBDD.Controllers
     public class LocalesController : Controller
     {
         private ILocalServicio _localServicio;
+        private IPrendumServicio _prendumServicio;
+
         public LocalesController()
         {
             VestimentasDBContext dBContext = new VestimentasDBContext();
             _localServicio = new LocalServicio(dBContext);
+            _prendumServicio = new PrendumServicio(dBContext);
         }
 
         public IActionResult Index()
@@ -48,15 +51,17 @@ namespace PracticaConBDD.Controllers
 
         public IActionResult Modificar(int id)
         {
+            ViewBag.TodasPrendas = _prendumServicio.obtenerTodos();
             Local local = _localServicio.obtenerPorId(id);
 
             return View(local);
         }
 
         [HttpPost]
-        public IActionResult Modificar(Local Local)
+        public IActionResult Modificar(Local Local, int[] prendasLocal)
         {
-            _localServicio.Modificar(Local);
+            List<Prendum> prendas =_prendumServicio.obtenerPorIds(prendasLocal);
+            _localServicio.Modificar(Local, prendas);
 
             return Redirect("/Locales");
         }

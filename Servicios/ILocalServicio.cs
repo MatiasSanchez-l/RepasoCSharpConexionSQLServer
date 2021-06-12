@@ -11,7 +11,7 @@ namespace PracticaConBDD.Servicios
         void Alta(Local local);
         void Borrar(Local local);
 
-        void Modificar(Local local);
+        void Modificar(Local local, List<Prendum> prendas);
         Local obtenerPorId(int id);
     }
 }

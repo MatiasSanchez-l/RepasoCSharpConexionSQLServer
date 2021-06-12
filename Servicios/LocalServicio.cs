@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using PracticaConBDD.Models;
 
 namespace PracticaConBDD.Servicios
@@ -16,7 +17,7 @@ namespace PracticaConBDD.Servicios
 
         public Local obtenerPorId(int id)
         {
-            return _dBContext.Locals.Find(id);
+            return _dBContext.Locals.Include(o => o.LocalPrenda).Include("LocalPrenda.IdPrendaNavigation").FirstOrDefault(o => o.IdLocal == id);
         }
 
         public void Alta(Local local)
@@ -25,11 +26,20 @@ namespace PracticaConBDD.Servicios
             _dBContext.SaveChanges();
         }
 
-        public void Modificar(Local local)
+        public void Modificar(Local local, List<Prendum> prendas)
         {
             Local objActual = obtenerPorId(local.IdLocal);
             objActual.Direccion = local.Direccion;
             objActual.Nombre = local.Nombre;
+
+            objActual.LocalPrenda.Clear();
+            _dBContext.SaveChanges();
+            
+            foreach (var p in prendas)
+            {
+                objActual.LocalPrenda.Add(new LocalPrendum {IdLocal = local.IdLocal, IdPrenda = p.IdPrenda });
+            }
+
             _dBContext.SaveChanges();
         }
 
