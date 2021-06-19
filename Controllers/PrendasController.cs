@@ -24,9 +24,20 @@ namespace PracticaConBDD.Controllers
             _tipoPrendumServicio = new TipoPrendaServicio(dBContext);
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            ViewBag.TodasTipoPrendas = _tipoPrendumServicio.obtenerTodos();
+            List<Prendum> prendas = _prendumServicio.obtenerTodos();
+            return View(prendas);
+        }
+
+        [HttpPost]
+        public IActionResult Index(int idTipoPrenda)
+        {
+            ViewBag.TodasTipoPrendas = _tipoPrendumServicio.obtenerTodos();
+            List<Prendum> prendas = _prendumServicio.obtenerTodosPorTipoPrenda(idTipoPrenda);
+            return View(prendas);
         }
 
         [HttpGet]
@@ -41,7 +52,7 @@ namespace PracticaConBDD.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.TodasTipoPrendas = _prendumServicio.obtenerTodos();
+                ViewBag.TodasTipoPrendas = _tipoPrendumServicio.obtenerTodos();
                 return View(prenda);
             }
 

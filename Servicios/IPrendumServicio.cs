@@ -13,6 +13,7 @@ namespace PracticaConBDD.Servicios
         List<Prendum> obtenerPorIds(int[] ids);
         List<Prendum> obtenerTodos();
 
+        List<Prendum> obtenerTodosPorTipoPrenda(int idTipoPrenda);
         Prendum obtenerPorId(int id);
     }
 }

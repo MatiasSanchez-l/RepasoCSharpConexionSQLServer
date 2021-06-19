@@ -36,6 +36,11 @@ namespace PracticaConBDD.Servicios
             return _dBContext.Prenda.ToList();
         }
 
+        public List<Prendum> obtenerTodosPorTipoPrenda(int idTipoPrenda)
+        {
+            return _dBContext.Prenda.Where(o=> o.IdTipoPrenda == idTipoPrenda).ToList();
+        }
+
         public void Alta(Prendum prendum)
         {
             _dBContext.Prenda.Add(prendum);

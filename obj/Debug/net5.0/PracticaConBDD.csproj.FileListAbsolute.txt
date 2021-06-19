@@ -399,3 +399,4 @@ D:\.net\practicaBdd\PracticaConBDD\PracticaConBDD\obj\Debug\net5.0\Razor\Views\L
 D:\.net\practicaBdd\PracticaConBDD\PracticaConBDD\obj\Debug\net5.0\Razor\Views\Locales\Modificar.cshtml.g.cs
 D:\.net\practicaBdd\PracticaConBDD\PracticaConBDD\bin\Debug\net5.0\Castle.Core.dll
 D:\.net\practicaBdd\PracticaConBDD\PracticaConBDD\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll
+D:\.net\practicaBdd\PracticaConBDD\PracticaConBDD\obj\Debug\net5.0\Razor\Views\Prendas\Alta.cshtml.g.cs

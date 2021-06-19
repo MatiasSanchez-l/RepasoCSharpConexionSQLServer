@@ -1,0 +1,48 @@
+﻿@model List<PracticaConBDD.Models.Prendum>
+@{ 
+    List< PracticaConBDD.Models.TipoPrendum> todasTipoPrendas = ViewBag.TodasTipoPrendas;
+    PracticaConBDD.Models.TipoPrendum todasTipoPrendaSeleccionada = ViewBag.TipoPrendaSeleccionada;
+}
+
+<form action="/Prendas/index" method="post">
+    Tipo prenda:
+    <select name="IdTipoPrenda">
+        <option value="">Elija Prenda</option>
+        @foreach (var tipo in todasTipoPrendas)
+        {
+                if (true)
+                {
+                    
+                }
+            <option value="@tipo.IdTipoPrenda">@tipo.Descripcion</option>
+        }
+    </select>
+    <input type="submit" value="filtrar"/>
+</form>
+
+@if(Model.Count == 0)
+{
+    <div>No hay prendas</div>
+}
+else
+{
+<table>
+    <tr>
+        <th>Tipo</th>
+        <th>Talle</th>
+        <th>Color</th>
+        <th>Modelo</th>
+        <th>Marca</th>
+    </tr>
+    @foreach (var prenda in Model)
+    {
+        <tr>
+            <td>@prenda.IdTipoPrendaNavigation.Descripcion</td>
+            <td>@prenda.Talle</td>
+            <td>@prenda.Color</td>
+            <td>@prenda.Modelo</td>
+            <td>@prenda.Marca</td>
+        </tr>
+    }
+</table>
+}
