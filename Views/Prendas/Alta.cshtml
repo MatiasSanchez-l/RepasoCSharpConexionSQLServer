@@ -1,0 +1,21 @@
+﻿@model PracticaConBDD.Models.Prendum
+@{ 
+    List<PracticaConBDD.Models.TipoPrendum> todosTipoPrendas = ViewBag.TodasTipoPrendas;
+}
+
+    <form action="/Prendas/Alta" method="post">
+        <div>Tipo: 
+            <select name="IdTipoPrenda">
+                <option value="">Elija Prenda</option>
+                @foreach (var tipo in todosTipoPrendas)
+                {
+                    <option value="@tipo.IdTipoPrenda">@tipo.Descripcion</option>
+                }
+            </select>
+        </div>
+        <div>Talle: <input type="text" name="Talle" value="" /></div>
+        <div>Color: <input type="text" name="Color" value="" /></div>
+        <div>Modelo: <input type="text" name="Modelo" value="" /></div>
+        <div>Marca: <input type="text" name="Marca" value="" /></div>
+        <input type="submit" value="Crear"/>
+    </form> 
