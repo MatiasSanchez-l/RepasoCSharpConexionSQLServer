@@ -1,7 +1,7 @@
 ﻿@model List<PracticaConBDD.Models.Prendum>
 @{ 
     List< PracticaConBDD.Models.TipoPrendum> todasTipoPrendas = ViewBag.TodasTipoPrendas;
-    PracticaConBDD.Models.TipoPrendum todasTipoPrendaSeleccionada = ViewBag.TipoPrendaSeleccionada;
+    int? IdTipoPrendaSeleccionada = ViewBag.IdTipoPrendaSeleccionada;
 }
 
 <form action="/Prendas/index" method="post">
@@ -10,11 +10,15 @@
         <option value="">Elija Prenda</option>
         @foreach (var tipo in todasTipoPrendas)
         {
-                if (true)
-                {
-                    
-                }
-            <option value="@tipo.IdTipoPrenda">@tipo.Descripcion</option>
+            if (tipo.IdTipoPrenda == IdTipoPrendaSeleccionada && IdTipoPrendaSeleccionada.HasValue)
+            {
+                <option value="@tipo.IdTipoPrenda" selected>@tipo.Descripcion</option>
+            }
+            else
+            {
+                <option value="@tipo.IdTipoPrenda">@tipo.Descripcion</option>
+            }
+
         }
     </select>
     <input type="submit" value="filtrar"/>

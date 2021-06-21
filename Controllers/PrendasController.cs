@@ -36,7 +36,9 @@ namespace PracticaConBDD.Controllers
         public IActionResult Index(int idTipoPrenda)
         {
             ViewBag.TodasTipoPrendas = _tipoPrendumServicio.obtenerTodos();
+            ViewBag.IdTipoPrendaSeleccionada = idTipoPrenda;
             List<Prendum> prendas = _prendumServicio.obtenerTodosPorTipoPrenda(idTipoPrenda);
+
             return View(prendas);
         }
 
