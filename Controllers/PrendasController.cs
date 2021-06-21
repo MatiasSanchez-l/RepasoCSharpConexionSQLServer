@@ -50,12 +50,18 @@ namespace PracticaConBDD.Controllers
         }
 
         [HttpPost]
-        public IActionResult Alta(Prendum prenda)
+        public IActionResult Alta(Prendum prenda, string tipoPrendaNueva)
         {
-            if (!ModelState.IsValid)
+            
+            ViewBag.TodasTipoPrendas = _tipoPrendumServicio.obtenerTodos();
+
+            if (!string.IsNullOrEmpty(tipoPrendaNueva))
             {
-                ViewBag.TodasTipoPrendas = _tipoPrendumServicio.obtenerTodos();
-                return View(prenda);
+                TipoPrendum tipoPrenda = new TipoPrendum();
+                tipoPrenda.Descripcion = tipoPrendaNueva;
+                
+                _tipoPrendumServicio.Alta(tipoPrenda);
+                prenda.IdTipoPrenda = tipoPrenda.IdTipoPrenda;
             }
 
             _prendumServicio.Alta(prenda);
