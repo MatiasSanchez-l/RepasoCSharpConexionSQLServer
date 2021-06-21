@@ -3,7 +3,7 @@
     List< PracticaConBDD.Models.TipoPrendum> todasTipoPrendas = ViewBag.TodasTipoPrendas;
     int? IdTipoPrendaSeleccionada = ViewBag.IdTipoPrendaSeleccionada;
 }
-
+<div><a asp-controller="Prendum" asp-action="Alta">Crear</a></div>
 <form action="/Prendas/index" method="post">
     Tipo prenda:
     <select name="IdTipoPrenda">
@@ -30,7 +30,7 @@
 }
 else
 {
-<table>
+<table class="table">
     <tr>
         <th>Tipo</th>
         <th>Talle</th>
